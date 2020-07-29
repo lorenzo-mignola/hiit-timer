@@ -1,0 +1,38 @@
+$primary: #033f63;
+$secondary: #144d6f;
+$light: #e8edf0;
+$shadow: 10px 14px 19px -7px rgba(3, 63, 99, 0.51);
+$shadow-hover: 10px 14px 14px -7px rgba(3, 63, 99, 0.61);
+$shadow-light: 10px 14px 19px -7px rgba(195, 215, 226, 0.51);
+$grey: #f0f0f0;
+$grey-light: #f7f7f7;
+$primary-alt: #6a8392;
+
+@mixin align-center {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+@mixin button {
+  border: 0;
+  border-radius: 12px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size: 1.7em;
+  margin: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  text-align: center;
+  &:disabled {
+    color: rgb(94, 94, 94);
+    box-shadow: none !important;
+    background-color: rgba(214, 214, 214, 0.747);
+    cursor: default;
+  }
+}
+
+button:focus {
+  outline: 0;
+}
