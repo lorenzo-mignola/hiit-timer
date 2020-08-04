@@ -5,6 +5,7 @@ module.exports = {
     themeColor: '#033f63',
     msTileColor: '#ffffff',
     manifestOptions: {
+      // eslint-disable-next-line @typescript-eslint/camelcase
       background_color: '#033f63',
     },
   },

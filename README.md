@@ -1,41 +1,23 @@
 # timer-web
 
-## Project setup
+A HIIT timer where you can set the work time, the rest time and how many repetition you want to do. The application include also a timer and a stopwatch
 
-```
-yarn install
-```
+---
 
-### Compiles and hot-reloads for development
+[Demo](https://lorenzo-mignola.github.io/hiit-timer/)
 
-```
-yarn serve
-```
+---
+![Home screen](./docs/DemoImage1.jpg)
+![StopWatch](./docs/DemoImage2.jpg)
+![Work](./docs/DemoImage3.jpg)
+![Rest](./docs/DemoImage4.jpg)
 
-### Compiles and minifies for production
-
-```
-yarn build
-```
-
-### Lints and fixes files
-
-```
-yarn lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+---
 
 ## TODO
 
-- [ ] sound end timer
-- [x] add workout
-- [ ] timer
-- [x] monospaced font on sportwatch
-- [x] date-fns used?
-- [X] include fonts
-- [ ] pouchDB?
-- [ ] snackbar error
+- [ ] better sound end timer
+- [ ] clear all workouts
+- [ ] snackbar on error
 - [ ] responsive
+- [ ] pwa offline
