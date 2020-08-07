@@ -98,6 +98,7 @@ const newWorkouts: Module<any, unknown> = {
           throw new Error('Missing data');
         }
       } catch (error) {
+        commit('ERROR', null, { root: true });
         console.error(error);
       }
     },

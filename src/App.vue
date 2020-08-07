@@ -3,8 +3,20 @@
     <transition name="fade">
       <router-view />
     </transition>
+    <ErrorSnackbar />
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import ErrorSnackbar from './components/ErrorSnackbar.vue';
+
+@Component({
+  components: { ErrorSnackbar },
+})
+export default class App extends Vue {}
+</script>
 
 <style lang="scss">
 @import './main.scss';

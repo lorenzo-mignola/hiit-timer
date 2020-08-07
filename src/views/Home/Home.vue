@@ -7,6 +7,12 @@
         <h5>Click the "+" button to create a new workout</h5>
       </div>
       <WorkoutCard v-for="workout in workoutsSorted" :key="workout._id" :workout="workout" />
+      <div v-if="workouts.length > 0">
+        <button class="delete" @click="deleteAll">
+          <img :src="trash" alt="trash" />
+          Delete all workouts
+        </button>
+      </div>
     </div>
     <Footer />
   </div>
@@ -18,6 +24,8 @@ import Component from 'vue-class-component';
 import { Workout } from '@/types';
 import { Action, State } from 'vuex-class';
 import { getTime, parseJSON } from 'date-fns';
+import Trash from '@/assets/Trash.svg';
+import db from '@/db';
 import WorkoutCard from './WorkoutCard.vue';
 import Footer from './Footer.vue';
 
@@ -28,6 +36,8 @@ export default class Home extends Vue {
   @Action('init') init!: () => void;
 
   @State('workouts') workouts!: Workout[];
+
+  trash = Trash;
 
   get workoutsSorted() {
     return this.workouts
@@ -47,6 +57,11 @@ export default class Home extends Vue {
         return 0;
       })
       : [];
+  }
+
+  deleteAll() {
+    db.destroy();
+    window.location.reload();
   }
 
   mounted() {
@@ -81,5 +96,21 @@ export default class Home extends Vue {
     display: none;
   }
   /* Scroll */
+  .delete {
+    color: $primary;
+    background-color: $grey;
+    border: 0;
+    border-radius: 4px;
+    font-size: 1.2em;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    &:hover{
+      cursor: pointer;
+    }
+    img{
+      margin-right: 8px;
+    }
+  }
 }
 </style>
