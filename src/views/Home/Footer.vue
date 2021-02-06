@@ -31,7 +31,7 @@ export default class Footer extends Vue {
 
 $img-shadow: 6px 6px 9px rgba(3, 63, 99, 0.41);
 .footer {
-  background-color: #e8edf0;
+  background-color: #242627;
   z-index: 10;
   position: fixed;
   width: calc(100vw + 1px);
@@ -58,8 +58,8 @@ $img-shadow: 6px 6px 9px rgba(3, 63, 99, 0.41);
   width: 60px;
   height: 60px;
   padding: 4px;
-  background-color: $secondary;
-  color: white;
+  background-color: $light;
+  color: $white;
   border-radius: 50%;
   transform: translateY(-40px);
   transition: all 0.2s;

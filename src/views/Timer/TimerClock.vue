@@ -5,8 +5,10 @@
       <CircleProgress :total="totalInvariable" :actual="total" />
     </div>
     <div class="buttons">
-      <button class="button-red" v-if="isRunning && total !== 0" @click="stop">Stop</button>
-      <button class="button-green" v-else-if="!isRunning && total !== 0" @click="start">
+      <button class="button-red" v-if="isRunning && total !== 0" @click="stop" autofocus>
+        Stop
+      </button>
+      <button class="button-green" v-else-if="!isRunning && total !== 0" @click="start" autofocus>
         Start
       </button>
       <div class="button-grey" v-if="total === 0 && !!totalInvariable" @click="resetTime">
@@ -22,7 +24,7 @@ import Component from 'vue-class-component';
 import { namespace } from 'vuex-class';
 import TimerTime from '@/components/TimerTime.vue';
 import CircleProgress from '@/components/CircleProgress.vue';
-import sound from '@/assets/Timer.mp3';
+import sound from '@/assets/5sec.mp3';
 
 const timer = namespace('timer');
 
@@ -49,8 +51,6 @@ export default class TimerClock extends Vue {
   timeInterval!: NodeJS.Timeout;
 
   timerSound = new Audio(sound);
-
-  // timerSoundSmall = new Audio(soundSmall);
 
   start() {
     this.isRunning = true;

@@ -122,7 +122,7 @@ export default class RestTime extends Vue {
     width: 13px;
     left: 2px;
     bottom: 2px;
-    background-color: white;
+    background-color: $white;
     transition: 0.2s;
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Cancel :color="isWork ? 'blue' : 'red'" :icon="true" />
+    <Cancel :color="isWork ? 'blue' : 'red'" :icon="true" :idDelete="id" />
     <div class="container">
       <div v-if="totalInvariable !== 0">
         <TimerTime :hour="hour" :min="min" :sec="sec" />
@@ -8,10 +8,16 @@
         <CircleProgress :total="totalInvariable" :actual="total" :type="isWork ? 'work' : 'rest'" />
       </div>
       <div class="buttons" v-if="totalInvariable !== 0">
-        <button class="button-red" v-if="isRunning" @click="stop">
+        <button class="button-red" v-if="isRunning" @click="stop" autofocus>
           Stop
         </button>
-        <button class="button-green" v-else-if="!isRunning" @click="start" :disabled="total <= 0">
+        <button
+          class="button-green"
+          v-else-if="!isRunning"
+          @click="start"
+          :disabled="total <= 0"
+          autofocus
+        >
           Start
         </button>
         <button class="button-grey" @click="skip" :disabled="actualRep <= 0">
@@ -32,7 +38,7 @@ import { Workout } from '@/types';
 import TimerTime from '@/components/TimerTime.vue';
 import CircleProgress from '@/components/CircleProgress.vue';
 import WorkProgress from '@/components/WorkProgress.vue';
-import sound from '@/assets/Timer.mp3';
+import sound from '@/assets/5sec.mp3';
 import endSound from '@/assets/AirHorn.mp3';
 import db from '../../db';
 import { extractSingleValue } from '../../util';
@@ -82,6 +88,7 @@ export default class WorkoutElement extends Vue {
       if (docWorkout.workRep) {
         this.loadData(docWorkout);
       }
+      this.timerSound.volume = 1.3;
     } catch (e) {
       console.error(e);
     }
@@ -103,9 +110,9 @@ export default class WorkoutElement extends Vue {
       /* sound handeler */
       if (this.actualRep <= 1 && this.total <= 0) {
         this.end.play();
-      } else if (this.total <= 5000) {
+      } else if (this.total <= 5100) {
         if (this.timerSound.paused) {
-          if (this.totalInvariable <= 5000) {
+          if (this.totalInvariable <= 5100) {
             this.timerSound.currentTime = 5 - this.totalInvariable / 1000;
           }
           this.timerSound.play();
@@ -122,6 +129,9 @@ export default class WorkoutElement extends Vue {
 
   stop() {
     clearInterval(this.timeInterval);
+    if (!this.timerSound.paused) {
+      this.timerSound.pause();
+    }
     this.isRunning = false;
   }
 
@@ -178,6 +188,6 @@ export default class WorkoutElement extends Vue {
 <style lang="scss" scoped>
 @import '../../main.scss';
 .container {
-  background-color: $grey-light;
+  background-color: $grey-dark;
 }
 </style>

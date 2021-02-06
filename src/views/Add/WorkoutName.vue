@@ -10,6 +10,7 @@
             id="name"
             v-model="name"
             :class="name === '' ? 'empty' : 'not-empty'"
+            autofocus
           />
           <label for="name">Workout name</label>
         </div>
@@ -78,12 +79,12 @@ input {
   border: 0;
   transition: all ease-in-out 0.2s;
   margin-left: -16px;
-  background-color: $light;
+  background-color: $dark;
   border-radius: 8px;
   &:focus,
   &:hover {
     outline: none;
-    box-shadow: $shadow-light;
+    box-shadow: $shadow-dark;
   }
   @media (min-width: 768px) {
     width: 60vw;

@@ -40,23 +40,20 @@ export default class Home extends Vue {
   trash = Trash;
 
   get workoutsSorted() {
-    return this.workouts
-      ? this.workouts.sort((a, b) => {
-        if (
-          (getTime(parseJSON(a.creationDate || '')) || 0)
-            > (getTime(parseJSON(b.creationDate || '')) || 0)
-        ) {
-          return 1;
-        }
-        if (
-          getTime(parseJSON(a.creationDate || '') || 0)
-            < (getTime(parseJSON(b.creationDate || '')) || 0)
-        ) {
-          return -1;
-        }
-        return 0;
-      })
-      : [];
+    if (!this.workouts) {
+      return [];
+    }
+    return this.workouts.sort((a, b) => {
+      const timeA = getTime(parseJSON(a.creationDate || '')) || 0;
+      const timeB = getTime(parseJSON(b.creationDate || '')) || 0;
+      if (timeA > timeB) {
+        return 1;
+      }
+      if (timeA < timeB) {
+        return -1;
+      }
+      return 0;
+    });
   }
 
   deleteAll() {
@@ -79,7 +76,7 @@ export default class Home extends Vue {
   padding-left: 16px;
   padding: 12px;
   overflow-y: scroll;
-  max-height: calc(90vh - 23px);
+  height: calc(90vh - 23px);
   /* Scroll */
   &::-webkit-scrollbar {
     width: 10px;
@@ -88,10 +85,14 @@ export default class Home extends Vue {
     background: transparent;
   }
   &::-webkit-scrollbar-thumb {
-    background: adjust-color($color: $primary, $alpha: -0.7);
+    background: adjust-color($color: $light, $alpha: -0.6);
     border-radius: 8px;
   }
   &::-webkit-scrollbar-button {
+    background-color: transparent;
+    display: none;
+  }
+  &::-webkit-scrollbar-corner {
     background-color: transparent;
     display: none;
   }
@@ -105,10 +106,10 @@ export default class Home extends Vue {
     padding: 8px;
     display: flex;
     align-items: center;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
-    img{
+    img {
       margin-right: 8px;
     }
   }

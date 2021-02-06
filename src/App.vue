@@ -23,6 +23,12 @@ export default class App extends Vue {}
 * {
   font-family: 'Exo 2', sans-serif;
 }
+
+#app {
+  background-color: #1e1f20;
+  color: $white;
+}
+
 .container {
   z-index: 9;
   border-top-left-radius: 35px;
@@ -38,7 +44,6 @@ export default class App extends Vue {}
 .button-primary {
   @include button;
   background-color: $primary;
-  color: white;
   box-shadow: 10px 14px 19px -7px rgba(3, 63, 99, 0.51);
   &:hover {
     box-shadow: 10px 14px 19px -7px rgba(3, 63, 99, 0.71);
@@ -47,30 +52,32 @@ export default class App extends Vue {}
 
 .button-green {
   @include button;
-  background-color: #68b684;
-  color: white;
-  box-shadow: 10px 14px 19px -7px rgba(104, 182, 132, 0.51);
+  background-color: #427c5f;
+  box-shadow: 10px 14px 19px -7px rgba(66, 124, 95, 0.51);
   &:hover {
-    box-shadow: 10px 14px 19px -7px rgba(104, 182, 132, 0.71);
+    box-shadow: 10px 14px 19px -7px rgba(66, 124, 95, 0.71);
   }
 }
 
 .button-red {
   @include button;
-  background-color: #cc2936;
-  color: white;
-  box-shadow: 10px 14px 19px -7px rgba(146, 105, 108, 0.51);
+  background-color: #9b252d;
+  box-shadow: 10px 14px 19px -7px rgba(155, 37, 45, 0.51);
   &:hover {
-    box-shadow: 10px 14px 19px -7px rgba(146, 105, 108, 0.71);
+    box-shadow: 10px 14px 19px -7px rgba(155, 37, 45, 0.71);
   }
 }
 
 .button-grey {
   @include button;
   background-color: #e9e9e9;
+  color: #1e1f20 !important;
   box-shadow: 10px 14px 19px -7px rgba(163, 163, 163, 0.51);
   &:hover {
     box-shadow: 10px 14px 19px -7px rgba(163, 163, 163, 0.71);
+  }
+  &:disabled {
+    color: #666666 !important;
   }
 }
 

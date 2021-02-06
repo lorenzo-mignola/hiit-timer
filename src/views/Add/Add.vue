@@ -22,7 +22,7 @@ export default class Add extends Vue {}
 @import '../../main.scss';
 
 .container {
-  background-color: $grey-light;
+  background-color: $grey-dark;
   & > div {
     display: grid;
     grid-template-rows: 4fr 1fr;

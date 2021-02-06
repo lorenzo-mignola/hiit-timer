@@ -24,60 +24,59 @@ import { Component, Prop } from 'vue-property-decorator';
 import prettyMilliseconds from 'pretty-ms';
 import { Workout } from '../../types';
 
-  @Component
+@Component
 export default class WorkoutCard extends Vue {
-    @Prop({ default: null, required: true }) workout!: Workout;
+  @Prop({ default: null, required: true }) workout!: Workout;
 
-    get total() {
-      const {
-        workRep, workTime, restTime, restEnd,
-      } = this.workout;
-      const wt = workRep * workTime;
-      const rt = restTime * (restEnd ? workRep : workRep - 1);
-      return workRep > 1 ? wt + rt : wt + restTime;
-    }
+  get total() {
+    // eslint-disable-next-line object-curly-newline
+    const { workRep, workTime, restTime, restEnd } = this.workout;
+    const wt = workRep * workTime;
+    const rt = restTime * (restEnd ? workRep : workRep - 1);
+    return workRep > 1 ? wt + rt : wt + restTime;
+  }
 
-    formatTime(ms: number) {
-      return prettyMilliseconds(ms, { colonNotation: true });
-    }
+  formatTime(ms: number) {
+    return prettyMilliseconds(ms, { colonNotation: true });
+  }
 
-    goToWorkout() {
-      // eslint-disable-next-line no-underscore-dangle
-      this.$router.push({ path: `/workout/${this.workout._id}` });
-    }
+  goToWorkout() {
+    // eslint-disable-next-line no-underscore-dangle
+    this.$router.push({ path: `/workout/${this.workout._id}` });
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-  @import '../../main.scss';
+@import '../../main.scss';
 
-  .card {
-    padding: 12px;
-    padding-bottom: 16px;
-    background-color: $primary;
-    border-radius: 8px;
-    color: white;
-    margin: 16px 8px 16px 0px;
-    background-image: url(../../assets/StopWatchBG.svg);
-    background-position: 108% 40%;
-    background-repeat: no-repeat;
-    background-size: 150px 600px;
-    box-shadow: $shadow;
-    transition: all ease-out 0.2s;
-    &:hover {
-      cursor: pointer;
-      box-shadow: $shadow-hover;
-    }
-    .value {
-      font-size: 1.2em;
-      font-weight: 600;
-    }
+.card {
+  padding: 12px;
+  padding-bottom: 16px;
+  background-color: $primary;
+  border-radius: 8px;
+  color: $white;
+  margin: 16px 8px 16px 0px;
+  background-image: url(../../assets/StopWatchBG.svg);
+  background-position: 108% 40%;
+  background-repeat: no-repeat;
+  background-size: 150px 600px;
+  box-shadow: $shadow;
+  transition: all ease-out 0.2s;
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-hover;
   }
-
-  h4 {
-    margin: 0px;
-    margin-bottom: 4px;
-    font-size: 1.5em;
+  .value {
+    font-size: 1.2em;
     font-weight: 600;
   }
+}
+
+h4 {
+  margin: 0px;
+  margin-bottom: 4px;
+  font-size: 1.5em;
+  font-weight: 600;
+}
 </style>

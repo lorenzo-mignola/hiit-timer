@@ -65,6 +65,9 @@ export default class TimeSelection extends Vue {
   flex-direction: column;
   align-items: center;
   margin: 0px 4px;
+  & > button {
+    color: $white;
+  }
 }
 button {
   transition: font-weight 0.2s;
@@ -76,13 +79,16 @@ button {
     cursor: pointer;
     font-weight: 600;
   }
+  &:disabled {
+    color: grey;
+  }
 }
 div {
   font-size: 2em;
 }
 .number {
-  background-color: $light;
-  box-shadow: $shadow-light;
+  background-color: $dark;
+  box-shadow: $shadow-dark;
   padding: 8px;
   border-radius: 12px;
   cursor: pointer;
@@ -100,8 +106,8 @@ div {
   max-height: 30vh;
   overflow: scroll;
   width: 100%;
-  background-color: $light;
-  box-shadow: $shadow-light;
+  background-color: $dark;
+  box-shadow: $shadow-dark;
   border-radius: 12px;
 
   /* Scroll */
@@ -112,10 +118,14 @@ div {
     background: transparent;
   }
   &::-webkit-scrollbar-thumb {
-    background: $primary;
+    background: adjust-color($color: $light, $alpha: -0.6);
     border-radius: 4px;
   }
   &::-webkit-scrollbar-button {
+    background-color: transparent;
+    display: none;
+  }
+  &::-webkit-scrollbar-corner {
     background-color: transparent;
     display: none;
   }
@@ -130,6 +140,7 @@ div {
     &:hover {
       cursor: pointer;
       background-color: #d9e4eb;
+      color: $primary;
     }
   }
 }

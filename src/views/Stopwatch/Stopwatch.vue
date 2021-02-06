@@ -4,8 +4,10 @@
     <div class="container">
       <Time :time="time" />
       <div class="buttons">
-        <button class="button-green start" @click="start" :disabled="isRunning">Start</button>
-        <button v-if="isRunning" class="button-red stop" @click="stop">Stop</button>
+        <button class="button-green start" @click="start" :disabled="isRunning" autofocus>
+          Start
+        </button>
+        <button v-if="isRunning" class="button-red stop" @click="stop" autofocus>Stop</button>
         <button v-else class="button-red stop" @click="reset" :disabled="time === 0">
           Reset
         </button>
@@ -71,7 +73,7 @@ export default class Stopwatch extends Vue {
 @import '../../main.scss';
 
 .container {
-  background: $grey-light;
+  background: $grey-dark;
 }
 .buttons {
   display: grid;

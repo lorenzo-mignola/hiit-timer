@@ -16,8 +16,6 @@ A HIIT timer where you can set the work time, the rest time and how many repetit
 
 ## TODO
 
-- [ ] better sound end timer
-- [x] clear all workouts
 - [ ] snackbar on error
 - [ ] responsive
 - [ ] pwa offline

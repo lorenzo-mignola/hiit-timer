@@ -25,8 +25,8 @@ export default class Time extends Vue {
   height: 80px;
   padding: 8px;
   border-radius: 20px;
-  background-color: $light;
-  box-shadow: $shadow-light;
+  background-color: $dark;
+  box-shadow: $shadow-dark;
   font-size: 4em;
   display: flex;
   align-items: center;

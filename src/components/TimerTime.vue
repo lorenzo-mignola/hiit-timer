@@ -46,8 +46,8 @@ export default class TimerTime extends Vue {
   width: 100%;
   padding: 8px;
   border-radius: 20px;
-  background-color: $light;
-  box-shadow: $shadow-light;
+  background-color: $dark;
+  box-shadow: $shadow-dark;
   display: flex;
   flex-direction: column;
   align-items: center;

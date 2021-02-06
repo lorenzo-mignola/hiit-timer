@@ -1,11 +1,15 @@
-$primary: #033f63;
-$secondary: #144d6f;
-$light: #e8edf0;
+$primary: #153e55;
+$secondary: #033f63;
+$dark: #0e2c3d;
+$light: #1e5a7e;
 $shadow: 10px 14px 19px -7px rgba(3, 63, 99, 0.51);
 $shadow-hover: 10px 14px 14px -7px rgba(3, 63, 99, 0.61);
 $shadow-light: 10px 14px 19px -7px rgba(195, 215, 226, 0.51);
+$shadow-dark: 10px 14px 19px -7px rgba(14, 45, 62, 0.51);
 $grey: #f0f0f0;
+$white: #dddddd;
 $grey-light: #f7f7f7;
+$grey-dark: #1e1f20;
 $primary-alt: #6a8392;
 
 @mixin align-center {
@@ -26,10 +30,17 @@ $primary-alt: #6a8392;
   transition: box-shadow 0.2s;
   text-align: center;
   &:disabled {
-    color: rgb(94, 94, 94);
+    color: #666666;
     box-shadow: none !important;
     background-color: rgba(214, 214, 214, 0.747);
     cursor: default;
+  }
+}
+
+button {
+  color: $white;
+  &:disabled {
+    color: #666666;
   }
 }
 

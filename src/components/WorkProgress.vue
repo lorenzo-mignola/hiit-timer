@@ -39,7 +39,7 @@ export default class WorkProgress extends Vue {
   .progress {
     height: 10px;
     border-radius: 12px;
-    background-color: $primary-alt;
+    background-color: $secondary;
     transition: width ease-in 0.6s;
   }
 }
