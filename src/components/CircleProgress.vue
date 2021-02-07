@@ -34,17 +34,21 @@ export default class CircleProgress extends Vue {
 
   @Ref('circle') circle!: typeof VueCircle & {
     updateProgress: (value: number) => void;
-    updateFill: (value: object) => void;
+    updateFill: (value: any) => void;
   };
 
   startAngle = -(Math.PI / 2);
 
   animation = { duration: 600, easing: 'circleProgressEasing' };
 
-  fill = {
-    gradient: this.type === 'rest' ? gradientRest : gradientWork,
-    gradientAngle: -this.startAngle,
-  };
+  fill = {};
+
+  mounted() {
+    this.fill = {
+      gradient: this.type === 'rest' ? gradientRest : gradientWork,
+      gradientAngle: -this.startAngle,
+    };
+  }
 
   beforeUpdate() {
     if (this.actual === this.total) {
